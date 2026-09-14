@@ -1,0 +1,295 @@
+/* ==========================================================================
+   RESPONSIVE DESIGN & STRICT BREAKPOINT SPECIFICATIONS
+   Breakpoints tested: 360px, 390px, 430px, 768px, 820px, 1024px, 1280px, 1440px, 1920px, 2560px, 3840px
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   LARGE SCREENS (2560px and 3840px 4K)
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 2560px) {
+  :root {
+    --container-max: 2000px;
+    --nav-height: 88px;
+  }
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 3840px) {
+  :root {
+    --container-max: 2800px;
+    --nav-height: 104px;
+  }
+  html {
+    font-size: 22px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   DESKTOP (1025px and above)
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1025px) {
+  .hamburger-btn {
+    display: none !important;
+  }
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+  .brand-coord {
+    display: inline-block;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TABLET, 1024px, 820px, 768px, & MOBILE BREAKPOINTS (<= 1024px)
+   CRITICAL REQUIREMENT: ONLY DISPLAY LOGO + HAMBURGER IN NAVBAR
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+  /* Navbar: Strict Logo + Hamburger Only */
+  .nav-center-title {
+    display: none !important;
+  }
+  
+  .nav-right {
+    display: none !important;
+  }
+
+  .hamburger-btn {
+    display: flex !important;
+  }
+
+  .site-header {
+    background-color: rgba(21, 21, 21, 0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--c-blueprint-border);
+  }
+
+  /* Hero Section */
+  .hero-content-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-copy {
+    text-align: left;
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
+  /* Company Overview */
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .overview-index-col {
+    position: relative;
+    top: 0;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .arch-index-num {
+    font-size: 4.5rem;
+  }
+
+  /* Services */
+  .service-row-header {
+    grid-template-columns: 50px 1fr auto;
+    padding: 1.25rem 0.5rem;
+    gap: 1rem;
+  }
+
+  .service-drawer-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-drawer-img {
+    height: 200px;
+  }
+
+  /* Project 07 Dashboard */
+  .proj07-inner-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .proj07-footer-telemetry {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Process Timeline: Horizontal to Vertical Flow */
+  .process-steps-list {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .step-node-line {
+    top: 32px;
+    left: 15px;
+    right: auto;
+    width: 2px;
+    height: calc(100% + 1.75rem);
+  }
+
+  .process-step-marker {
+    align-items: flex-start;
+  }
+
+  .step-card-body {
+    min-height: auto;
+    margin-left: 2.75rem;
+  }
+
+  /* Safety & Quality */
+  .safety-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* CTA Form */
+  .cta-form-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Footer */
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TABLET PORTRAIT & MOBILE (<= 768px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  :root {
+    --nav-height: 64px;
+  }
+
+  .section-padding {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-section {
+    padding-top: calc(var(--nav-height) + 1.5rem);
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 8.5vw, 3.5rem);
+  }
+
+  .hero-hud-panel {
+    padding: 1.25rem;
+  }
+
+  .hud-metrics-row {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pipeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .safety-cards-deck {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .matrix-table th, 
+  .matrix-table td {
+    padding: 0.85rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SMALL MOBILE (360px, 390px, 430px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 430px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .brand-badge {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.45rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .stat-box {
+    padding: 1.25rem 1rem;
+  }
+
+  .stat-big-number {
+    font-size: 2rem;
+  }
+
+  .proj07-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .proj07-footer-telemetry {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY: PREFERS REDUCED MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
