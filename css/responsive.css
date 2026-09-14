@@ -440,6 +440,21 @@
     font-size: 1.05rem;
   }
 
+  .contact-map-wrapper {
+    padding: 1rem;
+  }
+
+  .contact-map-viewport {
+    height: 280px;
+  }
+
+  .contact-map-hud-panel {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0.75rem;
+  }
+
   .brief-form-card {
     padding: 1.25rem 1rem;
   }

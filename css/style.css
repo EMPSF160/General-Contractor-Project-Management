@@ -2374,6 +2374,110 @@ input, textarea, select {
   background: rgba(46, 204, 113, 0.1);
 }
 
+/* Contact Social Deck */
+.contact-social-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+/* Technical Blueprint Map Stage */
+.contact-map-wrapper {
+  background: var(--c-black-surface);
+  border: 1px solid var(--c-blueprint-border);
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.contact-map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 1px solid var(--c-blueprint-border);
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.contact-map-viewport {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 45vh, 480px);
+  border: 1px solid rgba(49, 90, 120, 0.4);
+  overflow: hidden;
+  background: #0D1117;
+}
+
+.contact-map-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(120%);
+  transition: filter 0.3s ease;
+}
+
+.contact-map-viewport:hover .contact-map-iframe {
+  filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(110%);
+}
+
+.contact-map-overlay-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.contact-map-hud-panel {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  background: rgba(21, 21, 21, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--c-blueprint-border);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 280px;
+  width: calc(100% - 2.5rem);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.map-hud-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--c-orange);
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.map-hud-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 0.75rem;
+  font-size: 0.75rem;
+  color: var(--c-white);
+  border-top: 1px solid rgba(49, 90, 120, 0.25);
+  padding-top: 0.5rem;
+}
+
+.map-hud-meta-grid span {
+  color: var(--c-white-dim);
+}
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */
