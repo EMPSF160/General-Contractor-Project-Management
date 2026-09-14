@@ -35,6 +35,9 @@
 
   /* Layout & Geometry */
   --container-max: 1440px;
+  --container-padding: clamp(1rem, 3.5vw, 2.5rem);
+  --section-padding-y: clamp(3.75rem, 7vw, 7rem);
+  --section-padding-sm-y: clamp(2.5rem, 5vw, 4.5rem);
   --nav-height: 72px;
   --grid-line-color: rgba(49, 90, 120, 0.18);
   --grid-line-light: rgba(21, 21, 21, 0.08);
@@ -64,15 +67,20 @@ html {
   font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
   width: 100%;
+  min-width: 320px;
   overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
   background-color: var(--c-black);
   color: var(--c-white);
   line-height: 1.5;
   font-weight: 400;
+  position: relative;
 }
 
 body.menu-open {
@@ -106,75 +114,6 @@ input, textarea, select {
 }
 
 /* ==========================================================================
-   TECHNICAL BLUEPRINT & GRID SYSTEM
-   ========================================================================== */
-
-.blueprint-grid-dark {
-  background-image: 
-    linear-gradient(to right, rgba(49, 90, 120, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(49, 90, 120, 0.12) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.blueprint-grid-fine {
-  background-image: 
-    linear-gradient(to right, rgba(49, 90, 120, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(49, 90, 120, 0.08) 1px, transparent 1px),
-    linear-gradient(to right, rgba(49, 90, 120, 0.18) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(49, 90, 120, 0.18) 1px, transparent 1px);
-  background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
-}
-
-.blueprint-grid-light {
-  background-image: 
-    linear-gradient(to right, rgba(49, 90, 120, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(49, 90, 120, 0.08) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-.technical-border {
-  position: relative;
-  border: 1px solid var(--c-blueprint-border);
-}
-
-.technical-border::before,
-.technical-border::after {
-  content: "+";
-  position: absolute;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--c-orange);
-  line-height: 1;
-}
-
-.technical-border::before { top: -6px; left: -5px; }
-.technical-border::after { bottom: -6px; right: -5px; }
-
-.crosshair-corner {
-  position: relative;
-}
-.crosshair-corner::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid var(--c-orange);
-  border-left: 2px solid var(--c-orange);
-}
-.crosshair-corner::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  right: -1px;
-  width: 8px;
-  height: 8px;
-  border-bottom: 2px solid var(--c-orange);
-  border-right: 2px solid var(--c-orange);
-}
-
-/* ==========================================================================
    LAYOUT CONTAINERS & HELPERS
    ========================================================================== */
 
@@ -183,18 +122,18 @@ input, textarea, select {
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(1.25rem, 3vw, 2.5rem);
-  padding-right: clamp(1.25rem, 3vw, 2.5rem);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
 }
 
 .section-padding {
-  padding-top: clamp(4.5rem, 8vw, 8rem);
-  padding-bottom: clamp(4.5rem, 8vw, 8rem);
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
 }
 
 .section-padding-sm {
-  padding-top: clamp(3rem, 5vw, 5rem);
-  padding-bottom: clamp(3rem, 5vw, 5rem);
+  padding-top: var(--section-padding-sm-y);
+  padding-bottom: var(--section-padding-sm-y);
 }
 
 /* Section Colors */
@@ -697,6 +636,8 @@ input, textarea, select {
 .hero-copy {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1.5rem;
 }
 
@@ -708,6 +649,7 @@ input, textarea, select {
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--c-white);
+  text-align: center;
 }
 
 .hero-title span.highlight-orange {
@@ -719,11 +661,16 @@ input, textarea, select {
   color: var(--c-white-muted);
   max-width: 580px;
   line-height: 1.6;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   margin-top: 0.5rem;
 }
@@ -795,6 +742,8 @@ input, textarea, select {
 .hud-metric-box {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 0.2rem;
 }
 
@@ -860,6 +809,8 @@ input, textarea, select {
   top: calc(var(--nav-height) + 2rem);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1rem;
 }
 
@@ -870,6 +821,7 @@ input, textarea, select {
   line-height: 0.8;
   color: rgba(21, 21, 21, 0.12);
   letter-spacing: -0.04em;
+  text-align: center;
 }
 
 .overview-heading {
@@ -880,6 +832,9 @@ input, textarea, select {
   text-transform: uppercase;
   letter-spacing: -0.02em;
   color: var(--c-black);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 1.75rem;
 }
 
@@ -887,13 +842,16 @@ input, textarea, select {
   font-size: clamp(1.1rem, 1.4vw, 1.35rem);
   line-height: 1.6;
   color: #333330;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 2rem;
   max-width: 850px;
 }
 
 .pillars-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -902,6 +860,11 @@ input, textarea, select {
   border: 1px solid rgba(21, 21, 21, 0.12);
   padding: 1.5rem;
   background: var(--c-white-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   position: relative;
 }
@@ -918,6 +881,7 @@ input, textarea, select {
   color: var(--c-orange);
   font-weight: 700;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .pillar-title {
@@ -928,12 +892,15 @@ input, textarea, select {
   letter-spacing: 0.04em;
   color: var(--c-black);
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .pillar-desc {
   font-size: 0.875rem;
   color: #666660;
   line-height: 1.5;
+  text-align: center;
+  flex: 1;
 }
 
 /* ==========================================================================
@@ -974,7 +941,7 @@ input, textarea, select {
 
 .service-title {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -998,6 +965,8 @@ input, textarea, select {
   transition: transform 0.3s ease, color 0.3s ease;
   width: 32px;
   height: 32px;
+  min-width: 32px;
+  min-height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1019,27 +988,73 @@ input, textarea, select {
 .service-drawer-inner {
   padding: 0 1rem 2rem 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
   align-items: center;
+}
+
+.service-drawer-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--c-white-border);
+  background: #EAEAE6;
 }
 
 .service-drawer-img {
   width: 100%;
-  height: 240px;
+  height: 100%;
   object-fit: cover;
-  border: 1px solid var(--c-white-border);
+  object-position: center;
+  display: block;
+}
+
+.section-header-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  gap: 0.75rem;
+}
+
+.section-header-centered .tech-tag {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header-centered .overview-heading,
+.section-header-centered .hero-title {
+  text-align: center;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.section-header-centered .section-subtext {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .service-drawer-info {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1rem;
+}
+
+.service-drawer-info p {
+  text-align: center;
 }
 
 .service-deliverables {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
   margin-top: 0.5rem;
 }
@@ -1059,7 +1074,7 @@ input, textarea, select {
 
 .pipeline-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 3rem;
 }
@@ -1069,6 +1084,13 @@ input, textarea, select {
   border: 1px solid var(--c-blueprint-border);
   padding: 1.75rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 230px;
   transition: transform var(--transition-fast), border-color var(--transition-fast);
 }
 
@@ -1080,7 +1102,9 @@ input, textarea, select {
 .pipeline-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
   margin-bottom: 1rem;
 }
 
@@ -1090,6 +1114,7 @@ input, textarea, select {
   font-weight: 700;
   color: var(--c-orange);
   letter-spacing: 0.08em;
+  text-align: center;
 }
 
 .pipeline-status-badge {
@@ -1112,6 +1137,7 @@ input, textarea, select {
   text-transform: uppercase;
   color: var(--c-white);
   margin-bottom: 0.35rem;
+  text-align: center;
 }
 
 .pipeline-meta {
@@ -1119,12 +1145,15 @@ input, textarea, select {
   font-size: 0.75rem;
   color: var(--c-white-dim);
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .pipeline-progress-wrap {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
+  margin-top: auto;
 }
 
 .pipeline-prog-meta {
@@ -1359,6 +1388,8 @@ input, textarea, select {
 .telemetry-item {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 0.25rem;
 }
 
@@ -1367,6 +1398,7 @@ input, textarea, select {
   font-size: 0.65rem;
   color: var(--c-white-dim);
   text-transform: uppercase;
+  text-align: center;
 }
 
 .telemetry-val {
@@ -1374,6 +1406,7 @@ input, textarea, select {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--c-white);
+  text-align: center;
 }
 
 /* ==========================================================================
@@ -1396,20 +1429,26 @@ input, textarea, select {
 .process-step-item {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
   position: relative;
+  height: 100%;
 }
 
 .process-step-marker {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   position: relative;
+  width: 100%;
 }
 
 .step-node-circle {
   width: 32px;
   height: 32px;
+  min-width: 32px;
+  min-height: 32px;
   border: 1px solid rgba(21, 21, 21, 0.2);
   background: var(--c-white);
   display: flex;
@@ -1433,8 +1472,8 @@ input, textarea, select {
 .step-node-line {
   position: absolute;
   top: 16px;
-  left: 32px;
-  right: -1.5rem;
+  left: 50%;
+  right: -50%;
   height: 2px;
   background: rgba(21, 21, 21, 0.1);
   z-index: 1;
@@ -1450,9 +1489,18 @@ input, textarea, select {
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 0.75rem;
-  min-height: 220px;
+  height: 100%;
+  width: 100%;
+  min-height: 230px;
   transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.step-card-body .tech-tag {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .process-step-item.active .step-card-body {
@@ -1463,20 +1511,24 @@ input, textarea, select {
 
 .step-title {
   font-family: var(--font-primary);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--c-black);
+  text-align: center;
 }
 
 .step-subtasks {
   list-style: none;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 0.4rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: #666660;
+  flex: 1;
 }
 
 .step-subtasks li::before {
@@ -1490,7 +1542,7 @@ input, textarea, select {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 3rem;
 }
@@ -1501,6 +1553,11 @@ input, textarea, select {
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 180px;
   gap: 0.5rem;
   position: relative;
   transition: transform var(--transition-fast), border-color var(--transition-fast);
@@ -1517,6 +1574,7 @@ input, textarea, select {
   font-weight: 800;
   color: var(--c-white);
   line-height: 1;
+  text-align: center;
 }
 
 .stat-big-number span.unit {
@@ -1530,12 +1588,14 @@ input, textarea, select {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--c-white-muted);
+  text-align: center;
 }
 
 .stat-subtext {
   font-size: 0.75rem;
   color: var(--c-white-dim);
   line-height: 1.4;
+  text-align: center;
 }
 
 /* ==========================================================================
@@ -1547,10 +1607,12 @@ input, textarea, select {
   border: 1px solid var(--c-blueprint-border);
   background: var(--c-black-surface);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .matrix-table {
   width: 100%;
+  min-width: 620px;
   border-collapse: collapse;
   text-align: left;
   font-family: var(--font-mono);
@@ -1590,10 +1652,12 @@ input, textarea, select {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  white-space: nowrap;
 }
 
 .matrix-status-cell {
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .matrix-status-cell.on-track { color: #2ECC71; }
@@ -1611,6 +1675,7 @@ input, textarea, select {
 .matrix-mini-bar {
   flex: 1;
   max-width: 100px;
+  min-width: 60px;
   height: 5px;
   background: rgba(255, 255, 255, 0.1);
   overflow: hidden;
@@ -1627,7 +1692,7 @@ input, textarea, select {
 
 .projects-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 3.5rem;
 }
@@ -1638,6 +1703,7 @@ input, textarea, select {
   border: 1px solid rgba(21, 21, 21, 0.12);
   display: flex;
   flex-direction: column;
+  height: 100%;
   overflow: hidden;
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   cursor: pointer;
@@ -1654,7 +1720,7 @@ input, textarea, select {
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #000;
+  background: #151515;
 }
 
 .project-img-wrapper img {
@@ -1662,6 +1728,7 @@ input, textarea, select {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
   transition: transform 0.6s var(--ease-expo), filter 0.6s ease;
 }
 
@@ -1680,6 +1747,10 @@ input, textarea, select {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  justify-content: space-between;
   gap: 0.75rem;
   background: var(--c-white-card);
 }
@@ -1689,6 +1760,7 @@ input, textarea, select {
   font-size: 0.75rem;
   color: var(--c-orange);
   font-weight: 700;
+  text-align: center;
 }
 
 .project-card-name {
@@ -1698,6 +1770,7 @@ input, textarea, select {
   text-transform: uppercase;
   color: var(--c-black);
   line-height: 1.1;
+  text-align: center;
 }
 
 .project-location-meta {
@@ -1705,16 +1778,21 @@ input, textarea, select {
   font-size: 0.75rem;
   color: #666660;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  text-align: center;
 }
 
 .project-card-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
   border-top: 1px solid rgba(21, 21, 21, 0.08);
   padding-top: 0.75rem;
-  margin-top: 0.5rem;
+  margin-top: auto;
 }
 
 .project-pct-display {
@@ -1722,6 +1800,7 @@ input, textarea, select {
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--c-black);
+  text-align: center;
 }
 
 .project-view-cta {
@@ -1732,6 +1811,7 @@ input, textarea, select {
   text-transform: uppercase;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.35rem;
 }
 
@@ -1768,8 +1848,43 @@ input, textarea, select {
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  padding: clamp(1.5rem, 4vw, 2.5rem);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+}
+
+.modal-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.modal-telemetry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  background: rgba(49, 90, 120, 0.08);
+  padding: 0.75rem;
+  border: 1px solid var(--c-blueprint-border);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+@media screen and (max-width: 640px) {
+  .modal-body-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .modal-telemetry-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .modal-telemetry-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .modal-close-btn {
@@ -1801,7 +1916,7 @@ input, textarea, select {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(2rem, 4vw, 4rem);
-  align-items: center;
+  align-items: stretch;
   margin-top: 3rem;
 }
 
@@ -1817,6 +1932,9 @@ input, textarea, select {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
   gap: 0.75rem;
   transition: border-color var(--transition-fast);
 }
@@ -1828,12 +1946,15 @@ input, textarea, select {
 .safety-icon-wrap {
   width: 44px;
   height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border: 1px solid rgba(49, 90, 120, 0.4);
   background: rgba(49, 90, 120, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--c-orange);
+  margin: 0 auto;
 }
 
 .safety-card-title {
@@ -1842,12 +1963,15 @@ input, textarea, select {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--c-white);
+  text-align: center;
 }
 
 .safety-card-text {
   font-size: 0.8rem;
   color: var(--c-white-dim);
   line-height: 1.5;
+  text-align: center;
+  flex: 1;
 }
 
 .site-control-hud {
@@ -1856,7 +1980,9 @@ input, textarea, select {
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1.25rem;
+  height: 100%;
 }
 
 .site-hud-row {
@@ -1901,12 +2027,23 @@ input, textarea, select {
   padding-bottom: 3.5rem;
 }
 
+.testimonials-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
 .testimonial-slide-inner {
   border: 1px solid rgba(21, 21, 21, 0.12);
   background: var(--c-white-card);
   padding: clamp(2rem, 5vw, 3.5rem);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  flex: 1;
   gap: 1.75rem;
   position: relative;
 }
@@ -1916,6 +2053,8 @@ input, textarea, select {
   font-size: 4rem;
   line-height: 0.8;
   color: var(--c-orange);
+  text-align: center;
+  margin: 0 auto;
 }
 
 .testimonial-quote {
@@ -1924,14 +2063,23 @@ input, textarea, select {
   font-weight: 500;
   line-height: 1.45;
   color: var(--c-black);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  flex: 1;
 }
 
 .testimonial-author-meta {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 0.2rem;
   border-top: 1px solid rgba(21, 21, 21, 0.1);
   padding-top: 1rem;
+  margin-top: auto;
+  width: 100%;
 }
 
 .author-name {
@@ -1941,18 +2089,20 @@ input, textarea, select {
   color: var(--c-black);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  text-align: center;
 }
 
 .author-role {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: #777770;
+  text-align: center;
 }
 
 .swiper-nav-controls {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -1961,6 +2111,8 @@ input, textarea, select {
 .swiper-btn-next {
   width: 44px;
   height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border: 1px solid rgba(21, 21, 21, 0.2);
   display: flex;
   align-items: center;
@@ -1985,13 +2137,15 @@ input, textarea, select {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: flex-start;
+  align-items: center;
   margin-top: 3rem;
 }
 
 .cta-info-col {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1.5rem;
 }
 
@@ -2002,6 +2156,7 @@ input, textarea, select {
   line-height: 0.98;
   text-transform: uppercase;
   letter-spacing: -0.02em;
+  text-align: center;
 }
 
 .brief-form-card {
@@ -2065,6 +2220,7 @@ input, textarea, select {
   border: 1px solid var(--c-blueprint-border);
   background: rgba(49, 90, 120, 0.1);
   display: none;
+  text-align: center;
 }
 
 .form-feedback-msg.success {
@@ -2095,6 +2251,7 @@ input, textarea, select {
 .footer-brand-col {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1rem;
 }
 
@@ -2132,9 +2289,10 @@ input, textarea, select {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.5rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--c-white-dim);
+  text-align: center;
 }

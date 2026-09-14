@@ -146,13 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="tech-tag tech-tag-orange">${project.status}</span>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
-        <div style="position: relative; aspect-ratio: 16/10; overflow: hidden; border: 1px solid var(--c-blueprint-border);">
-          <img src="${project.image}" alt="${project.title}" style="width: 100%; height: 100%; object-fit: cover;">
+      <div class="modal-body-grid">
+        <div style="position: relative; aspect-ratio: 16/10; overflow: hidden; border: 1px solid var(--c-blueprint-border); background: #151515;">
+          <img src="${project.image}" alt="${project.title}" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;">
         </div>
         <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;">
           <p style="font-size: 0.9rem; color: var(--c-white-muted); line-height: 1.6;">${project.description}</p>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; background: rgba(49, 90, 120, 0.08); padding: 0.75rem; border: 1px solid var(--c-blueprint-border); font-family: var(--font-mono); font-size: 0.75rem;">
+          <div class="modal-telemetry-grid">
             <div><span style="color: var(--c-white-dim);">LOCATION:</span><br><strong style="color: var(--c-white);">${project.location}</strong></div>
             <div><span style="color: var(--c-white-dim);">TOTAL AREA:</span><br><strong style="color: var(--c-white);">${project.area}</strong></div>
             <div><span style="color: var(--c-white-dim);">COMPLETION:</span><br><strong style="color: var(--c-orange);">${project.progress}% COMPLETE</strong></div>
