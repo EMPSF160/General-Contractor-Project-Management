@@ -51,6 +51,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   hamburgerBtn?.addEventListener('click', () => toggleMobileMenu());
 
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen) {
+      toggleMobileMenu(false);
+    }
+  });
+
+  // Automatically close mobile menu if resized above 1024px
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024 && isMenuOpen) {
+      toggleMobileMenu(false);
+    }
+  }, { passive: true });
+
   // Close Mobile Menu upon clicking an internal link
   mobileNavLinks.forEach(link => {
     link.addEventListener('click', (e) => {
