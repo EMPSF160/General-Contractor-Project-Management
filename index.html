@@ -32,6 +32,9 @@
   <!-- ========================================================================
        TOP TECHNICAL NAVIGATION BAR
        ======================================================================== -->
+  <!-- ========================================================================
+       TOP TECHNICAL NAVIGATION BAR (LOGO ───────── MENU ☰)
+       ======================================================================== -->
   <header class="site-header" id="site-navbar">
     <div class="container nav-container">
       
@@ -40,66 +43,127 @@
         <div class="brand-badge">
           <span>GC</span> / PM
         </div>
-        <span class="brand-coord font-mono">SYS_VER: 2026.9 // GRID: 4A-12</span>
+        <span class="brand-coord font-mono">SYS_VER: 2026.9 // COMMAND</span>
       </a>
 
-      <!-- Center Technical Title (Desktop Only) -->
-      <div class="nav-center-title">
-        <span>GENERAL CONTRACTOR</span>
-        <span class="divider-plus">+</span>
-        <span>PROJECT MANAGEMENT</span>
+      <!-- Center Technical Connector Line (LOGO ───────── MENU) -->
+      <div class="nav-technical-connector" aria-hidden="true">
+        <span class="nav-connector-line"></span>
+        <span class="nav-connector-node font-mono">[ COMMAND SYSTEM ]</span>
+        <span class="nav-connector-line"></span>
       </div>
 
-      <!-- Right Desktop Links & CTA -->
-      <div class="nav-right">
-        <nav aria-label="Main Navigation">
-          <ul class="nav-links">
-            <li><a href="#overview" class="nav-link">Overview</a></li>
-            <li><a href="#services" class="nav-link">Services</a></li>
-            <li><a href="#pipeline" class="nav-link">Pipeline</a></li>
-            <li><a href="#process" class="nav-link">Process</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-          </ul>
-        </nav>
-        <a href="#contact" class="btn btn-primary btn-sm">START A PROJECT</a>
-      </div>
-
-      <!-- Hamburger Button (Mobile / Tablet / <=1024px) -->
-      <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
+      <!-- Magnetic Menu Button (Right) -->
+      <button class="magnetic-menu-btn" id="menu-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false" data-magnetic="true">
+        <span class="menu-btn-text font-mono" id="menu-btn-label">MENU</span>
+        <div class="hamburger-icon-wrap" aria-hidden="true">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </div>
       </button>
 
     </div>
   </header>
 
-  <!-- Fullscreen Mobile Navigation Overlay -->
-  <div class="mobile-menu-overlay" id="mobile-menu-drawer" aria-hidden="true">
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--c-blueprint-border); padding-bottom: 1.5rem;">
-      <div class="brand-badge"><span>GC</span> / PM COMMAND</div>
-      <div class="tech-tag tech-tag-orange">STATION ONLINE</div>
-    </div>
+  <!-- ========================================================================
+       FULLSCREEN MAGNETIC NAVIGATION OVERLAY WITH LARGE HOVER PREVIEWS
+       ======================================================================== -->
+  <div class="fullscreen-nav-overlay" id="fullscreen-nav" aria-hidden="true">
+    <div class="fs-nav-bg-grid blueprint-grid-fine"></div>
+    <div class="fs-nav-scanline"></div>
 
-    <ul class="mobile-menu-links">
-      <li><a href="#overview" class="mobile-nav-link"><span class="mono-index">01.</span> Overview</a></li>
-      <li><a href="#services" class="mobile-nav-link"><span class="mono-index">02.</span> Services</a></li>
-      <li><a href="#pipeline" class="mobile-nav-link"><span class="mono-index">03.</span> Project Pipeline</a></li>
-      <li><a href="#project-07-control" class="mobile-nav-link"><span class="mono-index">04.</span> Project 07 HUD</a></li>
-      <li><a href="#process" class="mobile-nav-link"><span class="mono-index">05.</span> Process</a></li>
-      <li><a href="#statistics" class="mobile-nav-link"><span class="mono-index">06.</span> Metrics</a></li>
-      <li><a href="#projects" class="mobile-nav-link"><span class="mono-index">07.</span> Projects</a></li>
-      <li><a href="#safety" class="mobile-nav-link"><span class="mono-index">08.</span> Safety &amp; Quality</a></li>
-      <li><a href="#contact" class="mobile-nav-link"><span class="mono-index">09.</span> Contact</a></li>
-    </ul>
-
-    <div class="mobile-menu-footer">
-      <a href="#contact" class="btn btn-primary" style="width: 100%;">START A PROJECT →</a>
-      <div class="sys-meta font-mono">
-        <div>COORDINATES: 13.0827° N, 80.2707° E</div>
-        <div>TIME: <span data-live-clock>UTC TIME</span></div>
+    <div class="fs-nav-container">
+      
+      <!-- Top Bar inside overlay -->
+      <div class="fs-nav-topbar">
+        <div class="brand-badge"><span>GC</span> / PM COMMAND MATRIX</div>
+        <div class="tech-tag tech-tag-orange">
+          <span class="status-dot active"></span>
+          STATION ONLINE
+        </div>
+        <div class="font-mono text-dim fs-esc-hint">[ ESC TO CLOSE ]</div>
       </div>
+
+      <!-- Main Navigation Body: Huge Links (Left) + Large Image Preview (Right) -->
+      <div class="fs-nav-body">
+        
+        <!-- Huge Animated Navigation Links -->
+        <nav class="fs-nav-menu" aria-label="Fullscreen Navigation">
+          <ul class="fs-menu-list">
+            
+            <li class="fs-menu-item" data-magnetic="true">
+              <a href="#hero" class="fs-menu-link active" data-index="01" data-image="image/chuttersnap-NMrUtSA7094-unsplash.jpg" data-title="HOME // COMMAND CENTER &amp; ARCHITECTURE" data-tag="FLAGSHIP 01">
+                <span class="fs-link-num">01</span>
+                <span class="fs-link-text">HOME</span>
+                <span class="fs-link-arrow">→</span>
+              </a>
+            </li>
+
+            <li class="fs-menu-item" data-magnetic="true">
+              <a href="#overview" class="fs-menu-link" data-index="02" data-image="image/glenov-brankovic-DWp5nUqTn6E-unsplash.jpg" data-title="ABOUT // CAPABILITIES, RIGOR &amp; CONTROL" data-tag="DISCIPLINE 02">
+                <span class="fs-link-num">02</span>
+                <span class="fs-link-text">ABOUT</span>
+                <span class="fs-link-arrow">→</span>
+              </a>
+            </li>
+
+            <li class="fs-menu-item" data-magnetic="true">
+              <a href="#services" class="fs-menu-link" data-index="03" data-image="image/josh-olalde-X1P1_EDNnok-unsplash.jpg" data-title="SERVICES // GENERAL CONTRACTING &amp; PM" data-tag="DISCIPLINES 03">
+                <span class="fs-link-num">03</span>
+                <span class="fs-link-text">SERVICES</span>
+                <span class="fs-link-arrow">→</span>
+              </a>
+            </li>
+
+            <li class="fs-menu-item" data-magnetic="true">
+              <a href="#projects" class="fs-menu-link" data-index="04" data-image="image/jeriden-villegas-VLPUm5wP5Z0-unsplash.jpg" data-title="PROJECTS // ACTIVE COMMERCIAL DOSSIERS" data-tag="PORTFOLIO 04">
+                <span class="fs-link-num">04</span>
+                <span class="fs-link-text">PROJECTS</span>
+                <span class="fs-link-arrow">→</span>
+              </a>
+            </li>
+
+            <li class="fs-menu-item" data-magnetic="true">
+              <a href="#contact" class="fs-menu-link" data-index="05" data-image="image/sean-pollock-PhYq704ffdA-unsplash.jpg" data-title="CONTACT // INITIATE PROJECT BRIEF" data-tag="PROTOCOL 05">
+                <span class="fs-link-num">05</span>
+                <span class="fs-link-text">CONTACT</span>
+                <span class="fs-link-arrow">→</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+
+        <!-- Large Image Preview Stage -->
+        <div class="fs-preview-stage crosshair-corner" aria-hidden="true">
+          <div class="fs-preview-img-container">
+            <img src="image/chuttersnap-NMrUtSA7094-unsplash.jpg" alt="Architectural Preview" class="fs-preview-img" id="fs-preview-img">
+            <div class="fs-preview-overlay-grid blueprint-grid-fine"></div>
+          </div>
+          <div class="fs-preview-meta">
+            <div class="fs-preview-meta-top">
+              <span class="tech-tag tech-tag-orange" id="fs-preview-tag">FLAGSHIP 01</span>
+              <span class="font-mono text-dim" style="font-size: 0.7rem;">[ LIVE DOSSIER PREVIEW ]</span>
+            </div>
+            <div class="fs-preview-title font-mono" id="fs-preview-title">HOME // COMMAND CENTER &amp; ARCHITECTURE</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Meta Footer -->
+      <div class="fs-nav-footer">
+        <div class="fs-footer-meta font-mono">
+          <div>COORDINATES: 13.0827° N, 80.2707° E</div>
+          <div>GLOBAL TIME: <span data-live-clock class="text-orange">UTC TIME</span></div>
+          <div>PRECISION TOLERANCE: ±2.0 MM</div>
+        </div>
+        <div class="fs-footer-actions">
+          <a href="#contact" class="btn btn-primary btn-sm fs-quick-cta">START A PROJECT →</a>
+        </div>
+      </div>
+
     </div>
   </div>
 

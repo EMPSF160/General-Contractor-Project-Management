@@ -30,12 +30,6 @@
    DESKTOP (1025px and above)
    -------------------------------------------------------------------------- */
 @media screen and (min-width: 1025px) {
-  .hamburger-btn {
-    display: none !important;
-  }
-  .mobile-menu-overlay {
-    display: none !important;
-  }
   .brand-coord {
     display: inline-block;
   }
@@ -44,25 +38,15 @@
 /* --------------------------------------------------------------------------
    TABLET, 1024px, 900px, 834px, 768px (<= 1024px)
    STRICT REQUIREMENT: 1024PX IS A TABLET LAYOUT
-   ONLY DISPLAY LOGO + HAMBURGER IN NAVBAR
+   ONLY DISPLAY LOGO ───────── MENU ☰ IN NAVBAR
    -------------------------------------------------------------------------- */
 @media screen and (max-width: 1024px) {
   :root {
     --nav-height: 68px;
   }
 
-  /* Navbar: Strict Logo + Hamburger in Top-Right */
-  .nav-center-title {
-    display: none !important;
-  }
-  
-  .nav-right {
-    display: none !important;
-  }
-
-  .hamburger-btn {
-    display: flex !important;
-    margin-left: auto;
+  .brand-coord {
+    display: none;
   }
 
   .site-header {
@@ -70,6 +54,16 @@
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--c-blueprint-border);
+  }
+
+  .fs-nav-body {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .fs-preview-stage {
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   /* Hero Section */
@@ -263,6 +257,30 @@
   .matrix-table td {
     padding: 0.85rem 0.75rem;
     font-size: 0.75rem;
+  }
+
+  .nav-connector-node {
+    display: none;
+  }
+
+  .fs-preview-stage {
+    display: none;
+  }
+
+  .fs-menu-link {
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+  }
+
+  .fs-nav-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .fs-footer-meta {
+    justify-content: center;
+    text-align: center;
   }
 
   .footer-bottom-bar {
